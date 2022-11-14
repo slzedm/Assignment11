@@ -9,6 +9,8 @@ Citations:
 https://www.learndatasci.com/solutions/python-typeerror-list-indices-must-be-integers-or-slices-not-str/
 https://stackoverflow.com/questions/15815976/group-count-list-of-dictionaries-based-on-value
 https://bobbyhadz.com/blog/python-sum-values-in-list-of-dictionaries#:~:text=To%20sum%20the%20values%20in,to%20the%20sum()%20function.
+https://stackoverflow.com/questions/61267353/how-to-access-the-first-element-or-number-in-counter-using-python
+https://stackoverflow.com/questions/22903215/extract-tuple-from-list
 Anything else that's relevant:
 This data comes from the presidential elections of 2020 and documents the largest presidential contributions by state.
 '''
@@ -32,8 +34,10 @@ data = parsed_json['results']
 caData = len([i for i in data if i['contribution_state'] == 'CA'])
 print("Of the top", len(data), "largest state contributions to the 2020 elections, California is responsible for", caData, "of them.")
 
-caContributions = []
-for i in range(len(data)):
-    if data[i]['contribution_state'] == 'CA':
-        caContributions= range(data[i]['contribution_receipt_amount'])
-print("The total contributions for the 2020 elections from California is",caContributions) 
+# Find the total contributions from California
+count = Counter()
+for i in data:
+    count[i['contribution_state']] += i['contribution_receipt_amount'] # list of contribution sums by state
+#print(count)
+caTotal = count.most_common(1) #CA contribution
+print("The total contributions for the 2020 elections from California was", caTotal[0][1]) 
