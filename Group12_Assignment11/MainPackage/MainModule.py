@@ -1,6 +1,6 @@
 '''
-Name: Sarah Zimmer, ***
-email: zimmese@mail.uc.edu, ***
+Name: Sarah Zimmer, Sara Jundi
+email: zimmese@mail.uc.edu, jundisa@mail.uc.edu
 Assignment: Assignment 11
 Course: IS 4010
 Semester/Year: Fall 2022
